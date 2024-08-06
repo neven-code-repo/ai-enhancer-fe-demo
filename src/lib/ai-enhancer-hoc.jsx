@@ -38,8 +38,6 @@ const withAIEnhancement = (WrappedComponent) => {
 		const simulateAIEnhancement = async (text, type) => {
 			await new Promise((resolve) => setTimeout(resolve, 1000));
 			switch (type) {
-				case "translate":
-					return `Translated: ${text}`;
 				case "rephrase":
 					return `Rephrased: ${text}`;
 				case "improve":
@@ -52,7 +50,6 @@ const withAIEnhancement = (WrappedComponent) => {
 		};
 
 		const defaultEnhancementButtons = [
-			{ label: "Translate", type: "translate", icon: "🌐" },
 			{ label: "Rephrase", type: "rephrase", icon: "🔄" },
 			{ label: "Improve", type: "improve", icon: "✨" },
 			{ label: "Summarize", type: "summarize", icon: "📝" },

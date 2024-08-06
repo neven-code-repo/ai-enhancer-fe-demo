@@ -14,7 +14,7 @@ const CustomInput = ({ value, onChange, placeholder, className }) => (
 const CustomTextArea = ({ value, onChange, placeholder, className }) => (
 	<div className={`custom-textarea ${className}`}>
 		<textarea value={value} onChange={onChange} placeholder={placeholder} />
-		<span className="custom-textarea-icon">🔍</span>
+		<span className="custom-textarea-icon"></span>
 	</div>
 );
 
@@ -28,7 +28,6 @@ const CustomExamples = () => {
 	};
 
 	const customEnhancementButtons = [
-		{ label: "CST Translate", type: "translate", icon: "🌐" },
 		{ label: "CST Rephrase", type: "rephrase", icon: "🔄" },
 		{ label: "CST Improve", type: "improve", icon: "✨" },
 		{ label: "CST Summarize", type: "summarize", icon: "📝" },

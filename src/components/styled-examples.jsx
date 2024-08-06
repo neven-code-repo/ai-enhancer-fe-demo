@@ -24,11 +24,11 @@ const StyledExamples = () => {
 			<h4>AI-Enhanced Input (All enhancements)</h4>
 			<AIEnhancedInput placeholder="Type here for AI suggestions..." onChange={handleInputChange} className="modern-input" buttonClassName="modern-button" />
 
-			<h4>AI-Enhanced TextArea (Only translate and improve)</h4>
+			<h4>AI-Enhanced TextArea (Only rephrase and improve)</h4>
 			<AIEnhancedTextArea
 				placeholder="Type here for AI suggestions..."
 				onChange={handleInputChange}
-				enabledEnhancements={["translate", "improve"]}
+				enabledEnhancements={["rephrase", "improve"]}
 				className="modern-textarea"
 				buttonClassName="pill-button"
 			/>

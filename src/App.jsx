@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import UnstyledExamples from "./components/unstyled-examples";
 import StyledExamples from "./components/styled-examples";
 import CustomExamples from "./components/custom-examples";
