@@ -1,13 +1,16 @@
 import { withAIEnhancer } from "../lib"; // mocking npm package import
 import PropTypes from "prop-types";
+//import css
+import "../styles/styled-examples.css";
 
 // Regular components
-const Input = ({ value, onChange, placeholder }) => <input type="text" value={value} onChange={onChange} placeholder={placeholder} />;
-const TextArea = ({ value, onChange, placeholder }) => <textarea value={value} onChange={onChange} placeholder={placeholder} />;
+const Input = ({ value, onChange, placeholder, className }) => <input type="text" value={value} onChange={onChange} placeholder={placeholder} className={className} />;
+
+const TextArea = ({ value, onChange, placeholder, className }) => <textarea value={value} onChange={onChange} placeholder={placeholder} className={className} />;
 
 // Custom input component
-const CustomInput = ({ value, onChange, placeholder }) => (
-	<div className="custom-input">
+const CustomInput = ({ value, onChange, placeholder, className }) => (
+	<div className={`custom-input ${className}`}>
 		<input type="text" value={value} onChange={onChange} placeholder={placeholder} />
 		<span className="custom-input-icon">🔍</span>
 	</div>
@@ -18,7 +21,7 @@ const AIEnhancedInput = withAIEnhancer(Input);
 const AIEnhancedTextArea = withAIEnhancer(TextArea);
 const AIEnhancedCustomInput = withAIEnhancer(CustomInput);
 
-const UnstyledExamples = () => {
+const StyledExamples = () => {
 	const handleInputChange = (e) => {
 		console.log("Input changed:", e.target.value);
 	};
@@ -41,16 +44,23 @@ const UnstyledExamples = () => {
 	);
 
 	return (
-		<div>
-			<h1>👉 Unstyled Examples</h1>
-			<h4>Regular Input</h4>
-			<Input placeholder="Type here..." onChange={handleInputChange} />
+		<div className="styled-examples">
+			<h1>🎨 Styled Examples</h1>
+
+			<h4>Modern Input</h4>
+			<Input placeholder="Type here..." onChange={handleInputChange} className="modern-input" />
 
 			<h4>AI-Enhanced Input (All enhancements)</h4>
-			<AIEnhancedInput placeholder="Type here for AI suggestions..." onChange={handleInputChange} />
+			<AIEnhancedInput placeholder="Type here for AI suggestions..." onChange={handleInputChange} className="modern-input" buttonClassName="modern-button" />
 
 			<h4>AI-Enhanced TextArea (Only translate and improve)</h4>
-			<AIEnhancedTextArea placeholder="Type here for AI suggestions..." onChange={handleInputChange} enabledEnhancements={["translate", "improve"]} />
+			<AIEnhancedTextArea
+				placeholder="Type here for AI suggestions..."
+				onChange={handleInputChange}
+				enabledEnhancements={["translate", "improve"]}
+				className="modern-textarea"
+				buttonClassName="pill-button"
+			/>
 
 			<h4>AI-Enhanced Custom Input (Custom buttons and only rephrase and summarize)</h4>
 			<AIEnhancedCustomInput
@@ -59,6 +69,7 @@ const UnstyledExamples = () => {
 				enhancementButtons={customEnhancementButtons}
 				renderEnhancementButtons={renderCustomButtons}
 				enabledEnhancements={["rephrase", "summarize"]}
+				className="neon-input"
 			/>
 		</div>
 	);
@@ -68,17 +79,20 @@ CustomInput.propTypes = {
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
+	className: PropTypes.string,
 };
 
 TextArea.propTypes = {
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
+	className: PropTypes.string,
 };
 
 Input.propTypes = {
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
+	className: PropTypes.string,
 };
-export default UnstyledExamples;
+export default StyledExamples;

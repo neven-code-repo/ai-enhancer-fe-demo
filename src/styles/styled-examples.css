@@ -1,0 +1,116 @@
+.styled-examples {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+}
+
+.modern-input,
+.modern-textarea {
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: border-color 0.3s ease;
+}
+
+.modern-input:focus,
+.modern-textarea:focus {
+	outline: none;
+	border-color: #4a90e2;
+}
+
+.modern-button {
+	background-color: #4a90e2;
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.modern-button:hover {
+	background-color: #3a7bc8;
+}
+
+.modern-button:disabled {
+	background-color: #a0c4e9;
+	cursor: not-allowed;
+}
+
+.pill-button {
+	background-color: #f0f0f0;
+	color: #333;
+	border: none;
+	padding: 8px 16px;
+	margin: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.pill-button:hover {
+	background-color: #e0e0e0;
+}
+
+.pill-button:disabled {
+	background-color: #f9f9f9;
+	color: #999;
+	cursor: not-allowed;
+}
+
+.neon-input {
+	background-color: #111;
+	border: 2px solid #0ff;
+	color: #0ff;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #0ff;
+}
+
+.neon-input input {
+	background-color: transparent;
+	border: none;
+	color: #0ff;
+	font-size: 16px;
+	width: calc(100% - 30px);
+}
+
+.neon-input input:focus {
+	outline: none;
+}
+
+.neon-input .custom-input-icon {
+	color: #0ff;
+}
+
+.custom-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.custom-button {
+	background-color: #222;
+	color: #0ff;
+	border: 1px solid #0ff;
+	padding: 8px 12px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+	background-color: #0ff;
+	color: #222;
+}
+
+.custom-button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

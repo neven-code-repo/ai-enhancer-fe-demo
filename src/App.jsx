@@ -1,11 +1,14 @@
 import "./App.css";
 import UnstyledExamples from "./components/unstyled-examples";
-
+import StyledExamples from "./components/styled-examples";
 function App() {
 	return (
-		<>
-			<UnstyledExamples />
-		</>
+		<div className="app">
+			<div className="examples">
+				<UnstyledExamples />
+				<StyledExamples />
+			</div>
+		</div>
 	);
 }
 
