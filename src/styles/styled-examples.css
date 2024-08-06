@@ -99,10 +99,10 @@
 	color: #0ff;
 	border: 1px solid #0ff;
 	padding: 8px 12px;
-	margin: 5px;
 	border-radius: 5px;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	font-size: 12px;
 }
 
 .custom-button:hover {
@@ -113,4 +113,30 @@
 .custom-button:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
+}
+
+.modern-textarea {
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	font-size: 16px;
+	transition: border-color 0.3s ease;
+}
+
+.neon-textarea textarea {
+	background-color: #111;
+	border: 2px solid #0ff;
+	color: #0ff;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #0ff;
+	width: calc(100% - 30px);
+	height: 100px;
+}
+.custom-textarea-icon {
+	color: #0ff;
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
