@@ -42,6 +42,11 @@
 9. I decided to remove translation as an option because i run out of the time, it required me to forward additional parameter for country and to provide that selection on frontend side so i opted out, however it can be added easily if needed.
 10. TypeScript / Code Organisation, I didnt use typescript, again to keep it simple, some typechecking has been done via propTypes, code and file structure is also setup plainly
 
+If everything goes well after setup you should see this and be able to use any of the options
+![alt text](https://i.imgur.com/yJRKFrU.png)
+
+![alt text](https://i.imgur.com/YEJwYN9.png)
+
 ## Project Structure
 
 The project is structured as follows:
