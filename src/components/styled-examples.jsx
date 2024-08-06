@@ -37,14 +37,14 @@ const StyledExamples = () => {
 };
 
 TextArea.propTypes = {
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
 	className: PropTypes.string,
 };
 
 Input.propTypes = {
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
 	className: PropTypes.string,

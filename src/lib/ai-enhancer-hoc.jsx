@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
-
 const withAIEnhancement = (WrappedComponent) => {
 	function AIEnhancedComponent({ onChange, value: propValue, enhancementButtons, renderEnhancementButtons, enabledEnhancements, buttonClassName, ...props }) {
 		const [value, setValue] = useState(propValue || "");
@@ -36,16 +35,66 @@ const withAIEnhancement = (WrappedComponent) => {
 		);
 
 		const simulateAIEnhancement = async (text, type) => {
-			await new Promise((resolve) => setTimeout(resolve, 1000));
-			switch (type) {
-				case "rephrase":
-					return `Rephrased: ${text}`;
-				case "improve":
-					return `Improved: ${text}`;
-				case "summarize":
-					return `Summarized: ${text}`;
-				default:
-					return text;
+			// Sanitize and escape the input text
+			const sanitizeText = (inputText) => {
+				return inputText
+					.replace(/\\/g, "\\\\") // Escape backslashes
+					.replace(/"/g, '\\"') // Escape double quotes
+					.replace(/\n/g, "\\n") // Escape newlines
+					.replace(/\r/g, "\\r") // Escape carriage returns
+					.replace(/\t/g, "\\t") // Escape tabs
+					.replace(/\f/g, "\\f") // Escape form feeds
+					.replace(/&/g, "&amp;")
+					.replace(/</g, "&lt;")
+					.replace(/>/g, "&gt;");
+			};
+
+			const sanitizedText = sanitizeText(text);
+
+			const query = `
+				query {
+					enhanceText(text: "${sanitizedText}", type: "${type}") {
+						result
+					}
+				}
+			`;
+
+			const variables = {
+				input: {
+					text,
+					enhancementType: type,
+				},
+			};
+
+			try {
+				const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/graphql`, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ query, variables }),
+					mode: "cors",
+				});
+
+				if (!response.ok) {
+					const errorText = await response.text();
+					console.error("Server response:", errorText);
+					throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+				}
+
+				const result = await response.json();
+
+				if (result.errors) {
+					throw new Error(result.errors[0].message);
+				}
+
+				// Sanitize the result by removing quotes
+				const sanitizedResult = result.data.enhanceText.result.replace(/^"|"$/g, "");
+
+				return sanitizedResult;
+			} catch (error) {
+				console.error("Error enhancing text:", error);
+				return text; // Return original text if enhancement fails
 			}
 		};
 

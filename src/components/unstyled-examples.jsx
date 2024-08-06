@@ -30,13 +30,13 @@ const UnstyledExamples = () => {
 };
 
 TextArea.propTypes = {
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
 };
 
 Input.propTypes = {
-	value: PropTypes.string.isRequired,
+	value: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
 	placeholder: PropTypes.string.isRequired,
 };
